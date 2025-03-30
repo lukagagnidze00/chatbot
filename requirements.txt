@@ -1,5 +1,3 @@
-Flask
-gunicorn
-requests
-python-dotenv
-flask-cors
+Flask>=2.0.0
+Werkzeug>=2.0.0
+requests>=2.25.0
