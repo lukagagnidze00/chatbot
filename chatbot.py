@@ -10,6 +10,10 @@ VERIFY_TOKEN = "chsiuahdADFHGWkgsdSHAksjhas11791273129"
 # Create Flask App (Global)
 app = Flask(__name__)
 
+@app.route("/")  
+def home():
+    return "Chatbot is running!"  # Message to show when accessing the root URL
+
 class MessengerAPI:
     """Handles sending messages to Facebook Messenger API"""
     BASE_URL = "https://graph.facebook.com/v19.0/me/messages"  # Updated to latest API
