@@ -16,7 +16,7 @@ def home():
 
 class MessengerAPI:
     """Handles sending messages to Facebook Messenger API"""
-    BASE_URL = "https://graph.facebook.com/v19.0/me/messages"  # Updated to latest API
+    BASE_URL = "https://graph.facebook.com/v21.0/me/messages"  # Updated to latest API
 
     @staticmethod
     def send_message(recipient_id, text, quick_replies=None):
