@@ -114,10 +114,14 @@ class MessageHandler:
 @app.route("/webhook", methods=["GET", "POST"])
 def webhook():
     if request.method == "GET":
-        print(f"Received verification request: {request.args}")  # Debugging print
         token_sent = request.args.get("hub.verify_token")
         challenge = request.args.get("hub.challenge")
-        return challenge if token_sent == VERIFY_TOKEN else "Invalid token", 403
+        print(f"Received token: {token_sent}")  # Debugging print
+        print(f"Expected token: {VERIFY_TOKEN}")  # Debugging print
+        if token_sent == VERIFY_TOKEN:
+            return challenge
+        else:
+            return "Invalid token", 403
 
     elif request.method == "POST":
         data = request.get_json()
