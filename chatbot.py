@@ -5,7 +5,7 @@ from flask import Flask, request
 
 # Facebook API Credentials
 ACCESS_TOKEN = "EAAWJAcNOiaUBOZB0LOvGxJM4jnvhVkuPNvDzyYrSI4uI6LSXSImLcv0dO0RmnYTdJHqKufhdNhw5Q3IMPK03tGxDlBxMS0b94mDEkdW6Y2ZCuf9cVH9hYX5JWMOJ0CgZCzl93cE7G4mzJSOyUUErL3SClI8UQ5WSojvr6gSmEx8LK6BPytw12MwWzQingvY"
-VERIFY_TOKEN = "chsiuahdADFHGWkgsdSHAksjhas11791273129"
+VERIFY_TOKEN = "939"
 
 # Create Flask App (Global)
 app = Flask(__name__)
@@ -114,6 +114,7 @@ class MessageHandler:
 @app.route("/webhook", methods=["GET", "POST"])
 def webhook():
     if request.method == "GET":
+        print(f"Received verification request: {request.args}")  # Debugging print
         token_sent = request.args.get("hub.verify_token")
         challenge = request.args.get("hub.challenge")
         return challenge if token_sent == VERIFY_TOKEN else "Invalid token", 403
