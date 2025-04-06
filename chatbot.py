@@ -6,6 +6,7 @@ from flask import Flask, request
 # Facebook API Credentials
 ACCESS_TOKEN = "EAAODzm1AH0IBO2wQ2ZAJ23wu00GhnkSakkw5ierApEVhaWxISXeOWtIgHA7urmvWNqgRAf7gI5gKXxjMf3IaEdbBHgL7xgVdhf3uHwChADp96n6hflpnOJBVgc4tZARzTRN0joNOJZAZCkZAJZAE8Xo2lyiXabKQ1owEwab3ZAZBkAqwHEppw3QG0ve7IOYVEUui"
 VERIFY_TOKEN = "939"
+user_sessions = {}  # user_id: language
 
 # Create Flask App (Global)
 app = Flask(__name__)
@@ -39,10 +40,14 @@ class MessageHandler:
     """Handles processing and responding to user messages"""
     def __init__(self, sender_id):
         self.sender_id = sender_id
-        self.language = None
+        self.language = user_sessions.get(sender_id)  # Load from memory
 
     def process_message(self, message_text):
-        if not self.language:
+        if message_text.lower() in ["restart", "🔄 restart"]:
+            user_sessions[self.sender_id] = None
+            self.send_welcome()
+            return
+        elif not self.language:
             self.set_language(message_text)
         elif message_text.lower() == "info about school":
             self.send_info_school()
@@ -63,12 +68,12 @@ class MessageHandler:
 
     def set_language(self, message_text):
         """Sets the language of the conversation based on user selection"""
-        if message_text.lower() == "english":
-            self.language = "ENGLISH"
+        elif message_text.lower() == "english":
+            user_sessions[self.sender_id] = "ENGLISH"
             MessengerAPI.send_message(self.sender_id, "You selected English. How can we assist you?")
             self.send_menu()
         elif message_text.lower() == "georgian":
-            self.language = "GEORGIAN"
+            user_sessions[self.sender_id] = "GEORGIAN"
             MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული. რით შეგვიძლია დაგეხმაროთ?")
             self.send_menu()
         else:
@@ -88,6 +93,7 @@ class MessageHandler:
                 {"content_type": "text", "title": "Info about School", "payload": "INFO_SCHOOL"},
                 {"content_type": "text", "title": "Info about Preschool", "payload": "INFO_PRESCHOOL"},
                 {"content_type": "text", "title": "Other/Specific Question", "payload": "OTHER"}
+                {"content_type": "text", "title": "🔄 Restart", "payload": "RESTART"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
         elif self.language == "GEORGIAN":
@@ -95,7 +101,8 @@ class MessageHandler:
             quick_replies = [
                 {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "INFO_SCHOOL"},
                 {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "INFO_PRESCHOOL"},
-                {"content_type": "text", "title": "სხვა /კონკრეტული კითხვა", "payload": "OTHER"}
+                {"content_type": "text", "title": "სხვა/კონკრეტული კითხვა", "payload": "OTHER"}
+                {"content_type": "text", "title": "🔄 Restart", "payload": "RESTART"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
 
