@@ -46,30 +46,30 @@ class MessageHandler:
         # Load the session for this sender, or create a new session dict if not present
         self.session = user_sessions.get(sender_id, {"language": None, "ended": False})
 
-    def process_message(self, message_text):
-        # First, check for the restart command
-        if message_text.lower() in ["restart", "🔄 restart"]:
+    def process_message(self, message_text, quick_reply_payload=None):
+        command = (quick_reply_payload or message_text).lower()
+
+        if command == "restart":
             user_sessions[self.sender_id] = {"language": None, "ended": False}
             self.session = user_sessions[self.sender_id]
             self.send_welcome()
             return
-
-        # If conversation is ended, ignore any messages except restart
+    
         if self.session.get("ended", False):
-            # Optionally, you can notify the user that the conversation has ended
-            # MessengerAPI.send_message(self.sender_id, "Conversation ended. Type 'restart' to start over.")
             return
-
-        # If no language is set, ask for language
-        elif self.session.get("language") is None:
-            self.set_language(message_text)
-        elif message_text.lower() == "info_school":
+    
+        if not self.session.get("language"):
+            self.set_language(command)  # 🔥 pass command here
+    
+        elif command == "info_school":
             self.send_info_school()
-        elif message_text.lower() == "info_preschool":
+        elif command == "info_preschool":
             self.send_info_preschool()
+        elif command == "other":
+            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
         else:
             MessengerAPI.send_message(self.sender_id, "bingo 2")
-            #self.send_welcome()
+
 
     def send_welcome(self):
         text = "Hello, welcome to X School! Please choose your language / გთხოვთ, აირჩიეთ თქვენი ენა."
@@ -79,29 +79,28 @@ class MessageHandler:
         ]
         MessengerAPI.send_message(self.sender_id, text, quick_replies)
 
-    def set_language(self, message_text):
-        """Sets the language of the conversation based on user selection"""
-        if message_text.lower() == "english":
-            # Save language and mark conversation as active
-            user_sessions[self.sender_id] = {"language": "english", "ended": False}
+    def set_language(self, command):
+        if command == "english":
+            user_sessions[self.sender_id] = {"language": command, "ended": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "You selected English.")
             self.send_menu()
-        elif message_text.lower() == "georgian":
-            user_sessions[self.sender_id] = {"language": "georgian", "ended": False}
+        elif command == "georgian":
+            user_sessions[self.sender_id] = {"language": command, "ended": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
             self.send_menu()
         else:
             self.send_welcome()
 
+
     def send_menu(self):
         """Send main menu options based on language"""
         if self.session.get("language") == "english":
             text = "What info can we provide?"
             quick_replies = [
-                {"content_type": "text", "title": "Info about School", "payload": "info_school"},
-                {"content_type": "text", "title": "Info about Preschool", "payload": "info_preschool"},
+                {"content_type": "text", "title": "Info about School", "payload": "school"},
+                {"content_type": "text", "title": "Info about Preschool", "payload": "preschool"},
                 {"content_type": "text", "title": "Other/Specific Question", "payload": "other"},
                 {"content_type": "text", "title": "🔄 Restart", "payload": "restart"}
             ]
@@ -109,8 +108,8 @@ class MessageHandler:
         elif self.session.get("language") == "georgian":
             text = "რა ინფორმაციის მოწოდება შეგვიძლია?"
             quick_replies = [
-                {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "info_school"},
-                {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "info_preschool"},
+                {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "school"},
+                {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "preschool"},
                 {"content_type": "text", "title": "სხვა/კონკრეტული კითხვა", "payload": "other"},
                 {"content_type": "text", "title": "🔄 დასაწყისი", "payload": "restart"}
             ]
@@ -152,10 +151,19 @@ def webhook():
         for entry in data.get("entry", []):
             for messaging_event in entry.get("messaging", []):
                 sender_id = messaging_event["sender"]["id"]
-                if "message" in messaging_event and "text" in messaging_event["message"]:
-                    text = messaging_event["message"]["text"]
-                    handler = MessageHandler(sender_id)
-                    handler.process_message(text)
+                if "message" in messaging_event:
+                    message = messaging_event["message"]
+                    
+                    # Check for quick reply payload
+                    if "quick_reply" in message:
+                        quick_reply_payload = message["quick_reply"]["payload"]
+                        handler = MessageHandler(sender_id)
+                        handler.process_message(None, quick_reply_payload)  # Pass None for message_text, use payload
+                    elif "text" in message:
+                        message_text = message["text"]
+                        handler = MessageHandler(sender_id)
+                        handler.process_message(message_text)
+                        
         return "EVENT_RECEIVED", 200
 
 if __name__ == "__main__":
