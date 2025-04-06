@@ -99,8 +99,8 @@ class MessageHandler:
         if self.session.get("language") == "english":
             text = "What info can we provide?"
             quick_replies = [
-                {"content_type": "text", "title": "Info about School", "payload": "school"},
-                {"content_type": "text", "title": "Info about Preschool", "payload": "preschool"},
+                {"content_type": "text", "title": "Info about School", "payload": "info_school"},
+                {"content_type": "text", "title": "Info about Preschool", "payload": "info_preschool"},
                 {"content_type": "text", "title": "Other/Specific Question", "payload": "other"},
                 {"content_type": "text", "title": "🔄 Restart", "payload": "restart"}
             ]
@@ -108,8 +108,8 @@ class MessageHandler:
         elif self.session.get("language") == "georgian":
             text = "რა ინფორმაციის მოწოდება შეგვიძლია?"
             quick_replies = [
-                {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "school"},
-                {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "preschool"},
+                {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "info_school"},
+                {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "info_preschool"},
                 {"content_type": "text", "title": "სხვა/კონკრეტული კითხვა", "payload": "other"},
                 {"content_type": "text", "title": "🔄 დასაწყისი", "payload": "restart"}
             ]
