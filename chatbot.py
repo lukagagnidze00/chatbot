@@ -61,15 +61,16 @@ class MessageHandler:
             return
 
         # If no language is set, ask for language
-        if not self.session.get("language"):
+        elif self.session.get("language") is None:
             self.send_welcome()
+        elif self.session.get("language") is not None:
             self.set_language(message_text)
-        elif message_text.lower() == "info_school":
-            self.send_info_school()
-        elif message_text.lower() == "info_preschool":
-            self.send_info_preschool()
-        elif message_text.lower() == "other":
-            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
+            if message_text.lower() == "info_school":
+                self.send_info_school()
+            elif message_text.lower() == "info_preschool":
+                self.send_info_preschool()
+            else:
+                MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
         else:
             MessengerAPI.send_message(self.sender_id, "bingo 2")
             #self.send_welcome()
