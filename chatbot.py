@@ -86,19 +86,19 @@ class MessageHandler:
             # Save language and mark conversation as active
             user_sessions[self.sender_id] = {"language": "ENGLISH", "ended": False}
             self.session = user_sessions[self.sender_id]
-            MessengerAPI.send_message(self.sender_id, "You selected English. How can we assist you?")
+            MessengerAPI.send_message(self.sender_id, "You selected English.")
             self.send_menu()
         elif message_text.lower() == "georgian":
             user_sessions[self.sender_id] = {"language": "GEORGIAN", "ended": False}
             self.session = user_sessions[self.sender_id]
-            MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული. რით შეგვიძლია დაგეხმაროთ?")
+            MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
             self.send_menu()
         else:
             self.ask_for_language()
 
     def ask_for_language(self):
         """Prompt the user to select a language"""
-        MessengerAPI.send_message(self.sender_id, "Please choose your language / გთხოვთ, აირჩიეთ თქვენი ენა.")
+        # MessengerAPI.send_message(self.sender_id, "Please choose your language / გთხოვთ, აირჩიეთ თქვენი ენა.")
         self.send_welcome()
 
     def send_menu(self):
