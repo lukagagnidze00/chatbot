@@ -62,15 +62,13 @@ class MessageHandler:
 
         # If no language is set, ask for language
         elif self.session.get("language") is None:
-            self.send_welcome()
-        elif self.session.get("language") is not None:
             self.set_language(message_text)
-            if message_text.lower() == "info_school":
-                self.send_info_school()
-            elif message_text.lower() == "info_preschool":
-                self.send_info_preschool()
-            else:
-                MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
+        elif message_text.lower() == "info_school":
+            self.send_info_school()
+        elif message_text.lower() == "info_preschool":
+            self.send_info_preschool()
+        else:
+            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
         else:
             MessengerAPI.send_message(self.sender_id, "bingo 2")
             #self.send_welcome()
@@ -96,6 +94,8 @@ class MessageHandler:
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
             self.send_menu()
+        else:
+            self.send_welcome()
 
     def send_menu(self):
         """Send main menu options based on language"""
