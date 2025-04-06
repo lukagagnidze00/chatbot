@@ -66,9 +66,9 @@ class MessageHandler:
         elif command == "info_preschool":
             self.send_info_preschool()
         elif command == "other":
-            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
+            self.send_info_other()
         else:
-            MessengerAPI.send_message(self.sender_id, "bingo 2")
+            self.send_info_after_bug()
 
 
     def send_welcome(self):
@@ -132,6 +132,25 @@ class MessageHandler:
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
+
+    def send_info_other(self):
+        if self.session.get("language") == "english":
+            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
+        elif self.session.get("language") == "georgian":
+            MessengerAPI.send_message(self.sender_id, "გთხოვთ მოგვწერეთ კითხვა და ვეცდებით მალე გიპასუხოთ!")
+        # Mark conversation as ended.
+        self.session["ended"] = True
+        user_sessions[self.sender_id] = self.session
+    
+    def send_info_after_bug(self):
+        if self.session.get("language") == "english":
+            MessengerAPI.send_message(self.sender_id, "For detailed information, please contact us at +995 32 2 29 03 71 during the working hours.")
+        elif self.session.get("language") == "georgian":
+            MessengerAPI.send_message(self.sender_id, "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე +995 32 2 29 03 71.")
+        # Mark conversation as ended.
+        self.session["ended"] = True
+        user_sessions[self.sender_id] = self.session
+
 
 @app.route("/webhook", methods=["GET", "POST"])
 def webhook():
