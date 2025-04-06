@@ -126,27 +126,27 @@ class MessageHandler:
 
     def send_info_preschool(self):
         if self.session.get("language") == "english":
-            MessengerAPI.send_message(self.sender_id, "Our preschool offers early childhood education programs. Contact us for admissions.")
+            MessengerAPI.send_message(self.sender_id, "Our preschool offers early childhood education programs. Contact us for admissions. To repeat the chat type the word: restart")
         elif self.session.get("language") == "georgian":
-            MessengerAPI.send_message(self.sender_id, "ჩვენი preschool-ს პროგრამა გთავაზობთ ბავშვთა ადრეული აღზრდის პროგრამებს. დაგვიკავშირდით რეგისტრაციისთვის.")
+            MessengerAPI.send_message(self.sender_id, "ჩვენი preschool-ს პროგრამა გთავაზობთ ბავშვთა ადრეული აღზრდის პროგრამებს. დაგვიკავშირდით რეგისტრაციისთვის. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
 
     def send_info_other(self):
         if self.session.get("language") == "english":
-            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
+            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you! To repeat the chat type the word: restart")
         elif self.session.get("language") == "georgian":
-            MessengerAPI.send_message(self.sender_id, "გთხოვთ მოგვწერეთ კითხვა და ვეცდებით მალე გიპასუხოთ!")
+            MessengerAPI.send_message(self.sender_id, "გთხოვთ მოგვწერეთ კითხვა და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
     
     def send_info_after_bug(self):
         if self.session.get("language") == "english":
-            MessengerAPI.send_message(self.sender_id, "For detailed information, please contact us at +995 32 2 29 03 71 during the working hours.")
+            MessengerAPI.send_message(self.sender_id, "For detailed information, please contact us at +995 32 2 29 03 71 during the working hours. To repeat the chat type the word: restart")
         elif self.session.get("language") == "georgian":
-            MessengerAPI.send_message(self.sender_id, "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე +995 32 2 29 03 71.")
+            MessengerAPI.send_message(self.sender_id, "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე +995 32 2 29 03 71. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
