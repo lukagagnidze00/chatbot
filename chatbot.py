@@ -117,9 +117,9 @@ class MessageHandler:
 
     def send_info_school(self):
         if self.session.get("language") == "english":
-            MessengerAPI.send_message(self.sender_id, "Our school provides high-quality education from Grade 1 to 12. Visit our website for more details.")
+            MessengerAPI.send_message(self.sender_id, "Our school provides high-quality education from Grade 1 to 12. Visit our website for more details. To repeat the chat type the word: restart")
         elif self.session.get("language") == "georgian":
-            MessengerAPI.send_message(self.sender_id, "ჩვენი სკოლა უზრუნველყოფს მაღალხარისხიან განათლებას 1-12 კლასებში. მეტი ინფორმაციისთვის ეწვიეთ ჩვენს ვებგვერდს.")
+            MessengerAPI.send_message(self.sender_id, "ჩვენი სკოლა უზრუნველყოფს მაღალხარისხიან განათლებას 1-12 კლასებში. მეტი ინფორმაციისთვის ეწვიეთ ჩვენს ვებგვერდს. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
         # Mark conversation as ended so that further texts won't trigger a new response.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
