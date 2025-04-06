@@ -87,16 +87,17 @@ class MessageHandler:
         """Sets the language of the conversation based on user selection"""
         if message_text.lower() == "english":
             # Save language and mark conversation as active
-            user_sessions[self.sender_id] = {"language": message_text.lower(), "ended": False}
+            user_sessions[self.sender_id] = {"language": "english", "ended": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "You selected English.")
             self.send_menu()
         elif message_text.lower() == "georgian":
-            user_sessions[self.sender_id] = {"language": message_text.lower(), "ended": False}
+            user_sessions[self.sender_id] = {"language": "georgian", "ended": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
             self.send_menu()
         else:
+            MessengerAPI.send_message(self.sender_id, "bingo 3")
             self.ask_for_language()
 
     def ask_for_language(self):
@@ -109,19 +110,19 @@ class MessageHandler:
         if self.session.get("language") == "english":
             text = "What info can we provide?"
             quick_replies = [
-                {"content_type": "text", "title": "Info about School", "payload": "INFO_SCHOOL"},
-                {"content_type": "text", "title": "Info about Preschool", "payload": "INFO_PRESCHOOL"},
-                {"content_type": "text", "title": "Other/Specific Question", "payload": "OTHER"},
-                {"content_type": "text", "title": "🔄 Restart", "payload": "RESTART"}
+                {"content_type": "text", "title": "Info about School", "payload": "info_school"},
+                {"content_type": "text", "title": "Info about Preschool", "payload": "info_preschool"},
+                {"content_type": "text", "title": "Other/Specific Question", "payload": "other"},
+                {"content_type": "text", "title": "🔄 Restart", "payload": "restart"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
         elif self.session.get("language") == "georgian":
             text = "რა ინფორმაციის მოწოდება შეგვიძლია?"
             quick_replies = [
-                {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "INFO_SCHOOL"},
-                {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "INFO_PRESCHOOL"},
-                {"content_type": "text", "title": "სხვა/კონკრეტული კითხვა", "payload": "OTHER"},
-                {"content_type": "text", "title": "🔄 დასაწყისი", "payload": "RESTART"}
+                {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "info_school"},
+                {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "info_preschool"},
+                {"content_type": "text", "title": "სხვა/კონკრეტული კითხვა", "payload": "other"},
+                {"content_type": "text", "title": "🔄 დასაწყისი", "payload": "restart"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
 
