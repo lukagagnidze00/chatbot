@@ -68,8 +68,6 @@ class MessageHandler:
         elif message_text.lower() == "info_preschool":
             self.send_info_preschool()
         else:
-            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you!")
-        else:
             MessengerAPI.send_message(self.sender_id, "bingo 2")
             #self.send_welcome()
 
