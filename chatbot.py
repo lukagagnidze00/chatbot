@@ -103,7 +103,7 @@ class MessageHandler:
 
     def send_menu(self):
         """Send main menu options based on language"""
-        if self.session.get("language") == "ENGLISH":
+        if self.session.get("language") == "english":
             text = "What info can we provide?"
             quick_replies = [
                 {"content_type": "text", "title": "Info about School", "payload": "INFO_SCHOOL"},
@@ -112,7 +112,7 @@ class MessageHandler:
                 {"content_type": "text", "title": "🔄 Restart", "payload": "RESTART"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
-        elif self.session.get("language") == "GEORGIAN":
+        elif self.session.get("language") == "georgian":
             text = "რა ინფორმაციის მოწოდება შეგვიძლია?"
             quick_replies = [
                 {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "INFO_SCHOOL"},
@@ -123,18 +123,18 @@ class MessageHandler:
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
 
     def send_info_school(self):
-        if self.session.get("language") == "ENGLISH":
+        if self.session.get("language") == "english":
             MessengerAPI.send_message(self.sender_id, "Our school provides high-quality education from Grade 1 to 12. Visit our website for more details.")
-        elif self.session.get("language") == "GEORGIAN":
+        elif self.session.get("language") == "georgian":
             MessengerAPI.send_message(self.sender_id, "ჩვენი სკოლა უზრუნველყოფს მაღალხარისხიან განათლებას 1-12 კლასებში. მეტი ინფორმაციისთვის ეწვიეთ ჩვენს ვებგვერდს.")
         # Mark conversation as ended so that further texts won't trigger a new response.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
 
     def send_info_preschool(self):
-        if self.session.get("language") == "ENGLISH":
+        if self.session.get("language") == "english":
             MessengerAPI.send_message(self.sender_id, "Our preschool offers early childhood education programs. Contact us for admissions.")
-        elif self.session.get("language") == "GEORGIAN":
+        elif self.session.get("language") == "georgian":
             MessengerAPI.send_message(self.sender_id, "ჩვენი preschool-ს პროგრამა გთავაზობთ ბავშვთა ადრეული აღზრდის პროგრამებს. დაგვიკავშირდით რეგისტრაციისთვის.")
         # Mark conversation as ended.
         self.session["ended"] = True
