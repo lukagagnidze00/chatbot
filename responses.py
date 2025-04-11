@@ -83,8 +83,8 @@ preschool_info_ge = """🧸🎓 *რობერ შუმანის სახ
 ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart"""
 
 
-welcome = """Hello, welcome to the chat of Robert Schuman European School \"Modzgvari\"! Please choose your language💖🎓
+welcome = """*Hello*, welcome to the chat of *Robert Schuman European School \"Modzgvari\"!* Please choose your language🎓
 
-გამარჯობა, კეთილი იყოს თქვენი მობრძანება რობერ შუმანის ევროპულ სასწავლებელ პროგრამა \"მოძღვარის\" ჩატში! გთხოვთ, აირჩიეთ ენა.💖🎓"""
+*გამარჯობა*, კეთილი იყოს თქვენი მობრძანება *რობერ შუმანის ევროპულ სასწავლებელ პროგრამა \"მოძღვარის\"* ჩატში! გთხოვთ, აირჩიეთ ენა.🎓"""
 
 
