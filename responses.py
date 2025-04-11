@@ -1,4 +1,4 @@
-school_info_en = """🎓 *Robert Schuman European School, "Modzgvari"* 
+school_info_en = """🎓 *Robert Schuman European School, \"Modzgvari\"* 
 
 📍 *Address:* 6 Arakishvili Street, Tbilisi, Georgia, 0179  
 🎒 *Grades:* 1-12    
@@ -21,7 +21,7 @@ school_info_en = """🎓 *Robert Schuman European School, "Modzgvari"*
 
 To repeat the conversation type the word: restart""""
 
-school_info_ge = """🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა "მოძღვარი"*
+school_info_ge = """🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა \"მოძღვარი\"*
 
 📍 *მისამართი:* არაყიშვილის ქ. 6, თბილისი, საქართველო, 0179
 🎒 *კლასები:* I-დან XII-მდე
@@ -44,7 +44,7 @@ school_info_ge = """🎓 *რობერ შუმანის სახელ�
 
 ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart""""
 
-preschool_info_en = """🧸🎓 *Robert Schuman European School, "Modzgvari"*
+preschool_info_en = """🧸🎓 *Robert Schuman European School, \"Modzgvari\"*
 
 📍 *Address:* 6 Arakishvili Street, Tbilisi, Georgia, 0179  
 👶 *Ages:* 5 – 6 years  
@@ -63,7 +63,7 @@ preschool_info_en = """🧸🎓 *Robert Schuman European School, "Modzgvari"*
 
 To repeat the conversation type the word: restart"""
 
-preschool_info_ge = """🧸🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა "მოძღვარი"*
+preschool_info_ge = """🧸🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა \"მოძღვარი\"*
 
 📍 *მისამართი: არაყიშვილის ქ. 6, თბილისი, საქართველო, 0179
 👶 *ასაკი:* 5-6 წელი
