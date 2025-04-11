@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+from responses import school_info_en, preschool_info_en, school_info_ge, preschool_info_ge
 from flask import Flask, request
 
 # Facebook API Credentials
@@ -117,18 +118,18 @@ class MessageHandler:
 
     def send_info_school(self):
         if self.session.get("language") == "english":
-            MessengerAPI.send_message(self.sender_id, "Our school provides high-quality education from Grade 1 to 12. Visit our website for more details. To repeat the chat type the word: restart")
+            MessengerAPI.send_message(self.sender_id, responses.school_info_en)
         elif self.session.get("language") == "georgian":
-            MessengerAPI.send_message(self.sender_id, "ჩვენი სკოლა უზრუნველყოფს მაღალხარისხიან განათლებას 1-12 კლასებში. მეტი ინფორმაციისთვის ეწვიეთ ჩვენს ვებგვერდს. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
+            MessengerAPI.send_message(self.sender_id, responses.school_info_ge)
         # Mark conversation as ended so that further texts won't trigger a new response.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
 
     def send_info_preschool(self):
         if self.session.get("language") == "english":
-            MessengerAPI.send_message(self.sender_id, "Our preschool offers early childhood education programs. Contact us for admissions. To repeat the chat type the word: restart")
+            MessengerAPI.send_message(self.sender_id, responses.preschool_info_en)
         elif self.session.get("language") == "georgian":
-            MessengerAPI.send_message(self.sender_id, "ჩვენი preschool-ს პროგრამა გთავაზობთ ბავშვთა ადრეული აღზრდის პროგრამებს. დაგვიკავშირდით რეგისტრაციისთვის. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
+            MessengerAPI.send_message(self.sender_id, responses.preschool_info_ge)
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
