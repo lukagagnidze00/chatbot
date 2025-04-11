@@ -17,7 +17,9 @@ school_info_en = """🎓 *Robert Schuman European School, "Modzgvari"*
 📞 *Contact:* +995 32 2 29 03 71  
 🌐 *Website:* https://modzgvari.edu.ge/ (currently under maintenance)
 
-👋 *Meet our team, explore our campus, and feel the RSES Modzgvari School difference!*"""
+👋 *Meet our team, explore our campus, and feel the RSES Modzgvari School difference!*
+
+To repeat the conversation type the word: restart""""
 
 school_info_ge = """🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა "მოძღვარი"*
 
@@ -38,7 +40,9 @@ school_info_ge = """🎓 *რობერ შუმანის სახელ�
 📞 *კონტაქტი:* +995 32 2 29 03 71
 🌐 *ვებგვერდი:* https://modzgvari.edu.ge/ (ამჟამად განახლების პროცესშია)
 
-👋 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!"""
+👋 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!
+
+ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart""""
 
 preschool_info_en = """🧸🎓 *Robert Schuman European School, "Modzgvari"*
 
@@ -55,7 +59,9 @@ preschool_info_en = """🧸🎓 *Robert Schuman European School, "Modzgvari"*
 📞 *Contact:* +995 32 2 29 03 71  
 🌐 *Website:* https://modzgvari.edu.ge/ (currently under maintenance)
 
-💖 *Give your little one a joyful, enriching start with us - a second home where they’ll grow, entertain, and shine!*"""
+💖 *Give your little one a joyful, enriching start with us - a second home where they’ll grow, entertain, and shine!*
+
+To repeat the conversation type the word: restart"""
 
 preschool_info_ge = """🧸🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა "მოძღვარი"*
 
@@ -72,6 +78,8 @@ preschool_info_ge = """🧸🎓 *რობერ შუმანის სახ
 📞 *კონტაქტი:* +995 32 2 29 03 71
 🌐 *ვებგვერდი:* https://modzgvari.edu.ge/ (ამჟამად განახლების პროცესშია)
 
-💖 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!"""
+💖 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!
+
+ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart""""
 
 
