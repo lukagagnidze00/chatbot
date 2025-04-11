@@ -73,7 +73,7 @@ class MessageHandler:
 
 
     def send_welcome(self):
-        text = "Hello, welcome to Robert Schuman European School \"Modzgvari\"! Please choose your language / გამარჯობა, კეთილი იყოს თქვენი მობრძანება რობერ შუმანის ევროპულ სასწავლებელ პროგრამა \"მოძღვარში\"! გთხოვთ, აირჩიეთ ენა."
+        text = responses.welcome
         quick_replies = [
             {"content_type": "text", "title": "English", "payload": "ENGLISH"},
             {"content_type": "text", "title": "ქართული", "payload": "GEORGIAN"}
