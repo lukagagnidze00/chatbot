@@ -1,86 +1,77 @@
-school_info_en = """🎓 Robert Schuman European School, "Modzgvari"  
+school_info_en = """🎓 *Robert Schuman European School, "Modzgvari"* 
 
-📍 *Address:* [Insert School Address]  
-🎒 *Grades:* 1st to 12th  
-📘 *Curriculum:* National & International standards (STEM, Languages, Arts, Social Sciences)  
+📍 *Address:* 6 Arakishvili Street, Tbilisi, Georgia, 0179  
+🎒 *Grades:* 1-12    
 👩‍🏫 *Teachers:* Highly qualified & caring professionals  
-👨‍👩‍👧‍👦 *Class Size:* Small groups for individual attention  
-🧠 *Enrichment:* Robotics, coding, arts, music, sports & critical thinking  
-💬 *Languages:* Bilingual (English 🇬🇧 & Georgian 🇬🇪)  
-📱 *Technology:* Smart boards, modern tools & digital learning platforms  
-🛡️ *Safety:* Secured campus with 24/7 monitoring & emergency protocols  
-🕓 *Schedule:* Monday–Friday, 09:00–17:00  
-🍱 *Meals:* Healthy lunch & snacks provided  
-🚌 *Transport:* Available across the city  
-🎓 *Graduates:* University-ready with global skillsets  
-🎯 *After-school Clubs:* Sports, debate, creative writing, chess & more  
-💵 *Tuition:* [Insert Tuition Fee Info]  
-📞 *Contact:* [Insert Phone Number]  
-🌐 *Website:* [Insert Website URL]
+👨‍👩‍👧‍👦 *Class Size:* groups of up to 20 students
+📘 *Curriculum:* National & International (IB-based) standards.
+🎯 *School Clubs:* Football, chess, traditional dances, hip-hop, ballet, music, etc. (price included)
+🎯 *After-school Advanced Clubs:* Robotics, chess, mental arithmetic, software development, advanced sports 🏀⚽️🏐, etc. (price excluded)   
+🧠 *Psychological Support:* Caring psychologist available for emotional well-being and personal growth
+📱 *Technology:* Digital learning platforms and tools 
+🕓 *Schedule for grades 1-6:* 09:00–17:30 
+🕓 *Schedule for grades 7+:* 09:00-15:00
+🍱 *Nutrition:* Healthy lunch (gr. 1-6), additional meals provided in the evening (gr. 1-4)  
+🎓 *Graduates:* University-ready with global skillsets    
+💵 *Tuition:* ₾ 8000  
+📞 *Contact:* +995 32 2 29 03 71  
+🌐 *Website:* https://modzgvari.edu.ge/ (currently under maintenance)
 
-👋 *Book a school tour today — meet our team, explore our campus, and feel the X School difference!*"""
+👋 *Meet our team, explore our campus, and feel the RSES Modzgvari School difference!*"""
 
-preschool_info_en = """🧸 *X Preschool – Where Little Minds Blossom*
+school_info_ge = """🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა "მოძღვარი"*
 
-📍 *Address:* [Insert Preschool Address]  
-👶 *Ages:* 2 – 6 years  
-🎨 *Approach:* Play-based, inquiry-led, and emotionally supportive learning  
-📚 *Activities:* Language, math, arts, music, physical play, and storytelling  
-🗣️ *Language Environment:* English 🇬🇧 & Georgian 🇬🇪 immersion  
-👩‍🏫 *Educators:* Trained early childhood specialists  
-🧘‍♀️ *Development:* Emotional intelligence, creativity, coordination, and confidence  
-🔒 *Safety:* Secure environment, daily sanitation, and trained staff  
-🍽️ *Nutrition:* Healthy breakfast, lunch & snacks included  
-🛏️ *Nap Time:* Clean rest areas for daily quiet time  
-🕘 *Hours:* Monday–Friday, 09:00–18:00  
-🚌 *Transport:* Optional pickup & drop-off  
-💵 *Monthly Fee:* [Insert Fee]  
-📞 *Contact:* [Insert Number]  
-🌐 *Website:* [Insert Link]
+📍 *მისამართი:* არაყიშვილის ქ. 6, თბილისი, საქართველო, 0179
+🎒 *კლასები:* I-დან XII-მდე
+👩‍🏫 *მასწავლებლები:* კვალიფიციური და მზრუნველი პროფესიონალები
+👨‍👩‍👧‍👦 *კლასის ზომა:* ჯგუფები 20-მდე მოსწავლით
+📘 *სასწავლო პროგრამა:* ეროვნული და საერთაშორისო (IB-ზე დაფუძნებული) სტანდარტები
+🎯 *სასკოლო კლუბები:* ფეხბურთი, ჭადრაკი, ტრადიციული ცეკვები, ჰიპ-ჰოპი, ბალეტი, მუსიკა და სხვა (ფასში შედის)
+🎯 *დამატებითი კლუბები:* რობოტექნიკა, ჭადრაკი, მენტალური არითმეტიკა, პროგრამირება, სპორტული წრეები 🏀⚽️🏐 და სხვა (ფასში არ შედის)
+🧠 *ფსიქოლოგიური მხარდაჭერა:* მზრუნველი ფსიქოლოგი მოსწავლეთა ემოციური კეთილდღეობისა და პიროვნული განვითარებისათვის
+📱 *ტექნოლოგიები:* ციფრული პლატფორმები და სწავლების ინოვაციური მეთოდები
+🕓 *I-VI კლასები:* 09:00–17:30
+🕓 *VII კლასიდან:* 09:00–15:00
+🍱 *კვება:* ჯანსაღი სადილი (I-VI კლ.), დამატებითი კვება საღამოს საათებში (I-IV კლ.)
+🎓 *კურსდამთავრებულები:* მზად არიან ნებისმიერი საუნივერსიტეტო გამოწვევისთვის და აქვთ გლობალური უნარ-ჩვევები
+💵 *სწავლების საფასური:* ₾ 8000
+📞 *კონტაქტი:* +995 32 2 29 03 71
+🌐 *ვებგვერდი:* https://modzgvari.edu.ge/ (ამჟამად განახლების პროცესშია)
 
-💖 *Give your little one a joyful, enriching start with us — a second home where they’ll grow, play, and shine!*"""
+👋 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!"""
 
+preschool_info_en = """🧸🎓 *Robert Schuman European School, "Modzgvari"*
 
-school_info_ge = """🎓 *X School – Premium Education for a Brighter Future!*
+📍 *Address:* 6 Arakishvili Street, Tbilisi, Georgia, 0179  
+👶 *Ages:* 5 – 6 years  
+🎨 *Approach:* Individualized approach, intensive practice, interactive learning, and psychological preparation   
+📚 *Curriculum:* Languages, math, arts, music, physical play, sports, ballet, etc.  
+👩‍🏫 *Teachers:* Highly skilled early childhood experts  
+🧘‍♀️ *Development:* Emotional intelligence, creativity, coordination, confidence ...
+🧠 *Psychological Support:* Caring psychologist available for emotional well-being and personal growth
+🍽️ *Nutrition:* Healthy lunch, additional meals provided in the evening     
+🕘 *Hours:* Monday–Friday, 09:00–17:30
+💵 *Tuition:* ₾ 6000  
+📞 *Contact:* +995 32 2 29 03 71  
+🌐 *Website:* https://modzgvari.edu.ge/ (currently under maintenance)
 
-📍 *Address:* [Insert School Address]  
-🎒 *Grades:* 1st to 12th  
-📘 *Curriculum:* National & International standards (STEM, Languages, Arts, Social Sciences)  
-👩‍🏫 *Teachers:* Highly qualified & caring professionals  
-👨‍👩‍👧‍👦 *Class Size:* Small groups for individual attention  
-🧠 *Enrichment:* Robotics, coding, arts, music, sports & critical thinking  
-💬 *Languages:* Bilingual (English 🇬🇧 & Georgian 🇬🇪)  
-📱 *Technology:* Smart boards, modern tools & digital learning platforms  
-🛡️ *Safety:* Secured campus with 24/7 monitoring & emergency protocols  
-🕓 *Schedule:* Monday–Friday, 09:00–17:00  
-🍱 *Meals:* Healthy lunch & snacks provided  
-🚌 *Transport:* Available across the city  
-🎓 *Graduates:* University-ready with global skillsets  
-🎯 *After-school Clubs:* Sports, debate, creative writing, chess & more  
-💵 *Tuition:* [Insert Tuition Fee Info]  
-📞 *Contact:* [Insert Phone Number]  
-🌐 *Website:* [Insert Website URL]
+💖 *Give your little one a joyful, enriching start with us - a second home where they’ll grow, entertain, and shine!*"""
 
-👋 *Book a school tour today — meet our team, explore our campus, and feel the X School difference!*"""
+preschool_info_ge = """🧸🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა "მოძღვარი"*
 
-preschool_info_ge = """🧸 *X Preschool – Where Little Minds Blossom*
+📍 *მისამართი: არაყიშვილის ქ. 6, თბილისი, საქართველო, 0179
+👶 *ასაკი:* 5-6 წელი
+🎨 *მიდგომა:* ინდივიდუალური მიდგომა, ინტენსიური პრაქტიკა, ინტერაქციული სწავლება, ფსიქოლოგიური მომზადება
+📚 *სასწავლო პროგრამა/აქტივობები:* ენები, მათემატიკა, ხელოვნება, მუსიკა, ფიზიკური თამაშები, სპორტი, ბალეტი და სხვა
+👩‍🏫 *მასწავლებლები:* მაღალკვალიფიციური სპეციალისტები
+🧘‍♀️ *განვითარება:* ემოციური ინტელექტი, კრეატიულობა, კოორდინაცია, თავდაჯერებულობა ...
+🧠 *ფსიქოლოგიური მხარდაჭერა:* მზრუნველი ფსიქოლოგი მოსწავლეთა ემოციური კეთილდღეობისა და პიროვნული განვითარებისათვის
+🍽️ *კვება:* ჯანსაღი სადილი და დამატებითი კვება საღამოს საათებში
+🕘 *საათი:* ორშაბათი–პარასკევი, 09:00–17:30
+💵 *სწავლების საფასური:* ₾ 6000
+📞 *კონტაქტი:* +995 32 2 29 03 71
+🌐 *ვებგვერდი:* https://modzgvari.edu.ge/ (ამჟამად განახლების პროცესშია)
 
-📍 *Address:* [Insert Preschool Address]  
-👶 *Ages:* 2 – 6 years  
-🎨 *Approach:* Play-based, inquiry-led, and emotionally supportive learning  
-📚 *Activities:* Language, math, arts, music, physical play, and storytelling  
-🗣️ *Language Environment:* English 🇬🇧 & Georgian 🇬🇪 immersion  
-👩‍🏫 *Educators:* Trained early childhood specialists  
-🧘‍♀️ *Development:* Emotional intelligence, creativity, coordination, and confidence  
-🔒 *Safety:* Secure environment, daily sanitation, and trained staff  
-🍽️ *Nutrition:* Healthy breakfast, lunch & snacks included  
-🛏️ *Nap Time:* Clean rest areas for daily quiet time  
-🕘 *Hours:* Monday–Friday, 09:00–18:00  
-🚌 *Transport:* Optional pickup & drop-off  
-💵 *Monthly Fee:* [Insert Fee]  
-📞 *Contact:* [Insert Number]  
-🌐 *Website:* [Insert Link]
-
-💖 *Give your little one a joyful, enriching start with us — a second home where they’ll grow, play, and shine!*"""
+💖 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!"""
 
 
