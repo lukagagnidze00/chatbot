@@ -19,7 +19,7 @@ school_info_en = """🎓 *Robert Schuman European School, \"Modzgvari\"*
 
 👋 *Meet our team, explore our campus, and feel the RSES Modzgvari School difference!*
 
-To repeat the conversation type the word: restart""""
+To repeat the conversation, type the word: restart"""
 
 school_info_ge = """🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა \"მოძღვარი\"*
 
@@ -42,7 +42,7 @@ school_info_ge = """🎓 *რობერ შუმანის სახელ�
 
 👋 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!
 
-ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart""""
+ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart"""
 
 preschool_info_en = """🧸🎓 *Robert Schuman European School, \"Modzgvari\"*
 
@@ -61,7 +61,7 @@ preschool_info_en = """🧸🎓 *Robert Schuman European School, \"Modzgvari\"*
 
 💖 *Give your little one a joyful, enriching start with us - a second home where they’ll grow, entertain, and shine!*
 
-To repeat the conversation type the word: restart"""
+To repeat the conversation, type the word: restart"""
 
 preschool_info_ge = """🧸🎓 *რობერ შუმანის სახელობის ევროპული სასწავლებელი პროგრამა \"მოძღვარი\"*
 
@@ -80,6 +80,6 @@ preschool_info_ge = """🧸🎓 *რობერ შუმანის სახ
 
 💖 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!
 
-ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart""""
+ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart"""
 
 
