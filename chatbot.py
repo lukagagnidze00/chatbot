@@ -1,7 +1,7 @@
 import os
 import json
 import requests
-from responses import school_info_en, preschool_info_en, school_info_ge, preschool_info_ge
+import responses
 from flask import Flask, request
 
 # Facebook API Credentials
