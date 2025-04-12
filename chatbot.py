@@ -102,7 +102,7 @@ class MessageHandler:
             quick_replies = [
                 {"content_type": "text", "title": "Info about School", "payload": "info_school"},
                 {"content_type": "text", "title": "Info about Preschool", "payload": "info_preschool"},
-                {"content_type": "text", "title": "Other/Specific Question", "payload": "other"},
+                {"content_type": "text", "title": "Other Question", "payload": "other"},
                 {"content_type": "text", "title": "🔄 Restart", "payload": "restart"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
@@ -111,7 +111,7 @@ class MessageHandler:
             quick_replies = [
                 {"content_type": "text", "title": "სკოლის შესახებ ინფორმაცია", "payload": "info_school"},
                 {"content_type": "text", "title": "ფრესქულის შესახებ ინფორმაცია", "payload": "info_preschool"},
-                {"content_type": "text", "title": "სხვა/კონკრეტული კითხვა", "payload": "other"},
+                {"content_type": "text", "title": "სხვა შეკითხვა", "payload": "other"},
                 {"content_type": "text", "title": "🔄 დასაწყისი", "payload": "restart"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
