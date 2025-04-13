@@ -50,7 +50,7 @@ class MessageHandler:
     def process_message(self, message_text, quick_reply_payload=None):
         command = (quick_reply_payload or message_text).lower()
 
-        if command == "restart" or command == "🔄 დასაწყისი" or command == "🔄 restart":
+        if command in ["restart", "🔄 დასაწყისი", "🔄 restart"]:
             user_sessions[self.sender_id] = {"language": None, "ended": False}
             self.session = user_sessions[self.sender_id]
             self.send_welcome()
@@ -62,11 +62,11 @@ class MessageHandler:
         if not self.session.get("language"):
             self.set_language(command)  # 🔥 pass command here
     
-        elif command == "info_school" or command == "სკოლა" or command == "school": # others are included because in case the app reponds late, it takes it as text not as quick reply payload.
+        elif command in ["info_school", "სკოლა", "school"]: # others are included because in case the app reponds late, it takes it as text not as quick reply payload.
             self.send_info_school()
-        elif command == "info_preschool" or command == "ფრესქული" or command == "preschool": 
+        elif command in ["info_preschool", "ფრესქული", "preschool"]: 
             self.send_info_preschool()
-        elif command == "other" or command == "სხვა შეკითხვა" or command == "other question":
+        elif command in ["other", "სხვა შეკითხვა", "other question"]:
             self.send_info_other()
         else:
             self.send_info_after_bug()
