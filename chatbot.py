@@ -9,7 +9,7 @@ ACCESS_TOKEN = "EAAODzm1AH0IBO2wQ2ZAJ23wu00GhnkSakkw5ierApEVhaWxISXeOWtIgHA7urmv
 VERIFY_TOKEN = "939"
 
 # Global dictionary to store session data for each user.
-# Each entry will be a dictionary, e.g.: { "language": "ENGLISH", "ended": False }
+# Each entry will be a dictionary, e.g.: { "language": "english_language_", "ended": False }
 user_sessions = {}  
 
 # Create Flask App (Global)
@@ -50,7 +50,7 @@ class MessageHandler:
     def process_message(self, message_text, quick_reply_payload=None):
         command = (quick_reply_payload or message_text).lower()
 
-        if command in ["restart", "🔄 დასაწყისი", "🔄 restart"]:
+        if command in ["restart"]:
             user_sessions[self.sender_id] = {"language": None, "ended": False}
             self.session = user_sessions[self.sender_id]
             self.send_welcome()
@@ -58,16 +58,15 @@ class MessageHandler:
     
         if self.session.get("ended", False):
             return
-    
-        if not self.session.get("language"):
-            self.set_language(command)  # 🔥 pass command here
-    
-        elif command in ["info_school", "სკოლა", "school"]: # others are included because in case the app reponds late, it takes it as text not as quick reply payload.
-            self.send_info_school()
-        elif command in ["info_preschool", "ფრესქული", "preschool"]: 
-            self.send_info_preschool()
-        elif command in ["other", "სხვა შეკითხვა", "other question"]:
-            self.send_info_other()
+       
+        if command in ["info_school_en", "info_school_ge"]: # others are included because in case the app reponds late, it takes it as text not as quick reply payload.
+            self.send_info_school(command)
+        elif command in ["info_preschool_en", "info_preschool_ge"]: 
+            self.send_info_preschool(command)
+        elif command in ["other_en", "other_ge"]:
+            self.send_info_other(command)
+        elif not self.session.get("language"):
+            self.set_language(command)  # 🔥 pass command here    
         else:
             self.send_info_after_bug()
 
@@ -75,18 +74,18 @@ class MessageHandler:
     def send_welcome(self):
         text = responses.welcome
         quick_replies = [
-            {"content_type": "text", "title": "English", "payload": "ENGLISH"},
-            {"content_type": "text", "title": "ქართული", "payload": "GEORGIAN"}
+            {"content_type": "text", "title": "English", "payload": "english_language_"},
+            {"content_type": "text", "title": "ქართული", "payload": "georgian_language_"}
         ]
         MessengerAPI.send_message(self.sender_id, text, quick_replies)
 
     def set_language(self, command):
-        if command == "english":
+        if command == "english_language_":
             user_sessions[self.sender_id] = {"language": command, "ended": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "You selected English.")
             self.send_menu()
-        elif command == "georgian":
+        elif command == "georgian_language_":
             user_sessions[self.sender_id] = {"language": command, "ended": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
@@ -97,57 +96,66 @@ class MessageHandler:
 
     def send_menu(self):
         """Send main menu options based on language"""
-        if self.session.get("language") == "english":
+        if self.session.get("language") == "english_language_":
             text = "What info can we provide?"
             quick_replies = [
-                {"content_type": "text", "title": "School", "payload": "info_school"},
-                {"content_type": "text", "title": "Preschool", "payload": "info_preschool"},
-                {"content_type": "text", "title": "Other Question", "payload": "other"},
+                {"content_type": "text", "title": "School", "payload": "info_school_en"},
+                {"content_type": "text", "title": "Preschool", "payload": "info_preschool_en"},
+                {"content_type": "text", "title": "Other Question", "payload": "other_en"},
                 {"content_type": "text", "title": "🔄 Restart", "payload": "restart"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
-        elif self.session.get("language") == "georgian":
+        elif self.session.get("language") == "georgian_language_":
             text = "რა ინფორმაციის მოწოდება შეგვიძლია?"
             quick_replies = [
-                {"content_type": "text", "title": "სკოლა", "payload": "info_school"},
-                {"content_type": "text", "title": "ფრესქული", "payload": "info_preschool"},
-                {"content_type": "text", "title": "სხვა შეკითხვა", "payload": "other"},
+                {"content_type": "text", "title": "სკოლა", "payload": "info_school_ge"},
+                {"content_type": "text", "title": "ფრესქული", "payload": "info_preschool_ge"},
+                {"content_type": "text", "title": "სხვა შეკითხვა", "payload": "other_ge"},
                 {"content_type": "text", "title": "🔄 დასაწყისი", "payload": "restart"}
             ]
             MessengerAPI.send_message(self.sender_id, text, quick_replies)
 
-    def send_info_school(self):
-        if self.session.get("language") == "english":
+    def send_info_school(self, command):
+        if self.session.get("language") == "english_language_" or command == "info_school_en":
             MessengerAPI.send_message(self.sender_id, responses.school_info_en)
-        elif self.session.get("language") == "georgian":
+        elif self.session.get("language") == "georgian_language_" or command == "info_school_ge":
             MessengerAPI.send_message(self.sender_id, responses.school_info_ge)
         # Mark conversation as ended so that further texts won't trigger a new response.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
 
-    def send_info_preschool(self):
-        if self.session.get("language") == "english":
+    def send_info_preschool(self, command):
+        if self.session.get("language") == "english_language_" or command == "info_preschool_en":
             MessengerAPI.send_message(self.sender_id, responses.preschool_info_en)
-        elif self.session.get("language") == "georgian":
+        elif self.session.get("language") == "georgian_language_" or command == "info_preschool_ge":
             MessengerAPI.send_message(self.sender_id, responses.preschool_info_ge)
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
 
-    def send_info_other(self):
-        if self.session.get("language") == "english":
+    def send_info_other(self, command):
+        if self.session.get("language") == "english_language_" or command == "other_en":
             MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you! To repeat the chat type the word: restart")
-        elif self.session.get("language") == "georgian":
+        elif self.session.get("language") == "georgian_language_" or command == "other_ge":
             MessengerAPI.send_message(self.sender_id, "გთხოვთ მოგვწერეთ კითხვა და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
     
     def send_info_after_bug(self):
-        if self.session.get("language") == "english":
+        if self.session.get("language") == "english_language_":
             MessengerAPI.send_message(self.sender_id, "For detailed information, please contact us at +995 32 2 29 03 71 during the working hours. To repeat the chat type the word: restart")
-        elif self.session.get("language") == "georgian":
+        elif self.session.get("language") == "georgian_language_":
             MessengerAPI.send_message(self.sender_id, "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე +995 32 2 29 03 71. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
+        else:
+            MessengerAPI.send_message(
+                self.sender_id,
+                "For detailed information, please contact us at *+995 32 2 29 03 71* during working hours.\n"
+                "To repeat the chat, type the word: *restart*\n\n"
+                "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*.\n"
+                "ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: *restart*"
+            ) 
+        
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
