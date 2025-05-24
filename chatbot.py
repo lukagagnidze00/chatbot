@@ -5,7 +5,7 @@ import responses
 from flask import Flask, request
 
 # Facebook API Credentials
-ACCESS_TOKEN = "EAAODzm1AH0IBO2wQ2ZAJ23wu00GhnkSakkw5ierApEVhaWxISXeOWtIgHA7urmvWNqgRAf7gI5gKXxjMf3IaEdbBHgL7xgVdhf3uHwChADp96n6hflpnOJBVgc4tZARzTRN0joNOJZAZCkZAJZAE8Xo2lyiXabKQ1owEwab3ZAZBkAqwHEppw3QG0ve7IOYVEUui"
+ACCESS_TOKEN = "EAAODzm1AH0IBO8LnrwlLOjr5VL5zAofXPEFp7S262pGlMaUEgupV6wleVdPDPQAk13YZALvGeznfWqz4kSkPbbwKENbn1EwPTpRevDNbgoZBjU6tPOZABS7RLKcWZBD5HrLe8VX1KrldBOibXGFWuk2PEfQGDj56zYFbzLKsFvdtJTP7Io7JCOd2iyZBOJ0ywoe6asbdt"
 VERIFY_TOKEN = "939"
 
 # Global dictionary to store session data for each user.
