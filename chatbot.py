@@ -135,18 +135,18 @@ class MessageHandler:
 
     def send_info_other(self, command):
         if self.session.get("language") == "english_language_" or command == "other_en":
-            MessengerAPI.send_message(self.sender_id, "Please specify your question, and we'll do our best to assist you! To repeat the chat type the word: restart")
+            MessengerAPI.send_message(self.sender_id, "Please specify your question or contact us during working hours at *+995 32 2 29 03 71*, and we'll do our best to assist you! To repeat the chat type the word: restart")
         elif self.session.get("language") == "georgian_language_" or command == "other_ge":
-            MessengerAPI.send_message(self.sender_id, "გთხოვთ მოგვწერეთ კითხვა და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
+            MessengerAPI.send_message(self.sender_id, "გთხოვთ მოგვწერეთ კითხვა ან დაგვიკავშირდით სამუშაო საათებში *+995 32 2 29 03 71* და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
         # Mark conversation as ended.
         self.session["ended"] = True
         user_sessions[self.sender_id] = self.session
     
     def send_info_after_bug(self):
         if self.session.get("language") == "english_language_":
-            MessengerAPI.send_message(self.sender_id, "For detailed information, please contact us at +995 32 2 29 03 71 during the working hours. To repeat the chat type the word: restart")
+            MessengerAPI.send_message(self.sender_id, "For detailed information, please contact us at *+995 32 2 29 03 71* during the working hours. To repeat the chat type the word: restart")
         elif self.session.get("language") == "georgian_language_":
-            MessengerAPI.send_message(self.sender_id, "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე +995 32 2 29 03 71. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
+            MessengerAPI.send_message(self.sender_id, "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart")
         else:
             MessengerAPI.send_message(
                 self.sender_id,
