@@ -59,7 +59,7 @@ class MessageHandler:
         if self.session.get("ended", False):
             return
 
-         if not self.session.get("welcome_sent"):
+        if not self.session.get("welcome_sent"):
             self.send_welcome()
             return
        
@@ -203,5 +203,6 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Uses Render's PORT
     print(f"Starting Flask app on port {port}...")  # Debugging print
     app.run(host="0.0.0.0", port=port, debug=True)
+
 
 
