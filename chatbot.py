@@ -87,18 +87,21 @@ class MessageHandler:
 
     def set_language(self, command):
         if command == "english_language_":
-            user_sessions[self.sender_id] = {"language": command, "ended": False}
+            user_sessions[self.sender_id] = {"language": command, "ended": False, "welcome_sent": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "You selected English.")
             self.send_menu()
         elif command == "georgian_language_":
-            user_sessions[self.sender_id] = {"language": command, "ended": False}
+            user_sessions[self.sender_id] = {"language": command, "ended": False, "welcome_sent": False}
             self.session = user_sessions[self.sender_id]
             MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
             self.send_menu()
-        else:
-            self.send_info_after_bug()
-
+        # else:
+        #     quick_replies = [
+        #         {"content_type": "text", "title": "English", "payload": "english_language_"},
+        #         {"content_type": "text", "title": "ქართული", "payload": "georgian_language_"}
+        #     ]
+        #     MessengerAPI.send_message(self.sender_id, quick_replies)
 
     def send_menu(self):
         """Send main menu options based on language"""
@@ -204,6 +207,7 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Uses Render's PORT
     print(f"Starting Flask app on port {port}...")  # Debugging print
     app.run(host="0.0.0.0", port=port, debug=True)
+
 
 
 
