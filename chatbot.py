@@ -9,7 +9,7 @@ ACCESS_TOKEN = "EAAODzm1AH0IBO8LnrwlLOjr5VL5zAofXPEFp7S262pGlMaUEgupV6wleVdPDPQA
 VERIFY_TOKEN = "939"
 
 # Global dictionary to store session data for each user.
-# Each entry will be a dictionary, e.g.: { "language": "english_language_", "ended": False }
+# Each entry will be a dictionary, e.g.: { "language": "english_language_", "ended": False, "welcome_sent": False }
 user_sessions = {}  
 
 # Create Flask App (Global)
@@ -45,13 +45,13 @@ class MessageHandler:
     def __init__(self, sender_id):
         self.sender_id = sender_id
         # Load the session for this sender, or create a new session dict if not present
-        self.session = user_sessions.get(sender_id, {"language": None, "ended": False})
+        self.session = user_sessions.get(sender_id, {"language": None, "ended": False, "welcome_sent": False})
 
     def process_message(self, message_text, quick_reply_payload=None):
         command = (quick_reply_payload or message_text).lower()
 
         if command in ["restart"]:
-            user_sessions[self.sender_id] = {"language": None, "ended": False}
+            user_sessions[self.sender_id] = {"language": None, "ended": False, "welcome_sent": False}
             self.session = user_sessions[self.sender_id]
             self.send_welcome()
             return
@@ -65,7 +65,7 @@ class MessageHandler:
             self.send_info_preschool(command)
         elif command in ["other_en", "other_ge"]:
             self.send_info_other(command)
-        elif not self.session.get("language"):
+        elif not self.session.get("language") and not self.session.get("welcome_sent"):
             self.set_language(command)  # 🔥 pass command here    
         else:
             self.send_info_after_bug()
@@ -198,3 +198,4 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Uses Render's PORT
     print(f"Starting Flask app on port {port}...")  # Debugging print
     app.run(host="0.0.0.0", port=port, debug=True)
+
