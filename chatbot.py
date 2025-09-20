@@ -69,7 +69,7 @@ class MessageHandler:
             self.send_info_preschool(command)
         elif command in ["other_en", "other_ge"]:
             self.send_info_other(command)
-        elif not self.session.get("language")
+        elif not self.session.get("language"):
             self.set_language(command)  # 🔥 pass command here    
         else:
             self.send_info_after_bug()
@@ -203,6 +203,7 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Uses Render's PORT
     print(f"Starting Flask app on port {port}...")  # Debugging print
     app.run(host="0.0.0.0", port=port, debug=True)
+
 
 
 
