@@ -58,6 +58,10 @@ class MessageHandler:
     
         if self.session.get("ended", False):
             return
+
+         if not self.session.get("welcome_sent"):
+            self.send_welcome()
+            return
        
         if command in ["info_school_en", "info_school_ge"]: # others are included because in case the app reponds late, it takes it as text not as quick reply payload.
             self.send_info_school(command)
@@ -65,13 +69,14 @@ class MessageHandler:
             self.send_info_preschool(command)
         elif command in ["other_en", "other_ge"]:
             self.send_info_other(command)
-        elif not self.session.get("language") and not self.session.get("welcome_sent"):
+        elif not self.session.get("language")
             self.set_language(command)  # 🔥 pass command here    
         else:
             self.send_info_after_bug()
 
 
     def send_welcome(self):
+        self.session["welcome_sent"] = True
         text = responses.welcome
         quick_replies = [
             {"content_type": "text", "title": "English", "payload": "english_language_"},
@@ -91,7 +96,7 @@ class MessageHandler:
             MessengerAPI.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
             self.send_menu()
         else:
-            self.send_welcome()
+            self.send_info_after_bug()
 
 
     def send_menu(self):
@@ -198,4 +203,5 @@ if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))  # Uses Render's PORT
     print(f"Starting Flask app on port {port}...")  # Debugging print
     app.run(host="0.0.0.0", port=port, debug=True)
+
 
