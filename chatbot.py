@@ -77,6 +77,7 @@ class MessageHandler:
 
     def send_welcome(self):
         self.session["welcome_sent"] = True
+        user_sessions[self.sender_id] = self.session
         text = responses.welcome
         quick_replies = [
             {"content_type": "text", "title": "English", "payload": "english_language_"},
