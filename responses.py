@@ -15,8 +15,7 @@ school_info_en = """🎓 *Robert Schuman European School, \"Modzgvari\"*
 🎓 *Graduates:* University-ready with global skillsets    
 💵 *Tuition:* ₾ 8000  
 📞 *Contact:* +995 32 2 29 03 71  
-🌐 *Website:* https://modzgvari.edu.ge/ (currently under maintenance)
-
+🌐 *Website:* https://modzgvari.edu.ge/
 👋 *Meet our team, explore our campus, and feel the RSES Modzgvari School difference!*
 
 To repeat the conversation, type the word: restart"""
@@ -38,7 +37,7 @@ school_info_ge = """🎓 *რობერ შუმანის სახელ�
 🎓 *კურსდამთავრებულები:* მზად არიან ნებისმიერი საუნივერსიტეტო გამოწვევისთვის და აქვთ გლობალური უნარ-ჩვევები
 💵 *სწავლის საფასური:* ₾ 8000
 📞 *კონტაქტი:* +995 32 2 29 03 71
-🌐 *ვებგვერდი:* https://modzgvari.edu.ge/ (ამჟამად განახლების პროცესშია)
+🌐 *ვებგვერდი:* https://modzgvari.edu.ge/
 
 👋 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!
 
@@ -58,7 +57,7 @@ preschool_info_en = """🧸🎓 *Robert Schuman European School, \"Modzgvari\"*
 🕘 *Hours:* Monday–Friday, 09:00–17:30
 💵 *Tuition:* ₾ 6000  
 📞 *Contact:* +995 32 2 29 03 71  
-🌐 *Website:* https://modzgvari.edu.ge/ (currently under maintenance)
+🌐 *Website:* https://modzgvari.edu.ge/
 
 💖 *Give your little one a joyful, enriching start with us - a second home where they’ll grow, entertain, and shine!*
 
@@ -78,7 +77,7 @@ preschool_info_ge = """🧸🎓 *რობერ შუმანის სახ
 🕘 *საათი:* ორშაბათი–პარასკევი, 09:00–17:30
 💵 *სწავლის საფასური:* ₾ 6000
 📞 *კონტაქტი:* +995 32 2 29 03 71
-🌐 *ვებგვერდი:* https://modzgvari.edu.ge/ (ამჟამად განახლების პროცესშია)
+🌐 *ვებგვერდი:* https://modzgvari.edu.ge/
 
 💖 ისწავლე ჩვენთან დღეს და გახდი წარმატებული მომავალში!
 
@@ -90,4 +89,5 @@ welcome = """*გამარჯობა*, კეთილი იყოს თ�
 
 *Hello*, welcome to the chat of *Robert Schuman European School \"Modzgvari\"!* Please choose your language and follow chatbot flow to obtain the desired information🎓. 
 To repeat the conversation, type the word: *restart*"""
+
 
