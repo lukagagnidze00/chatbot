@@ -4,8 +4,8 @@ from urllib.parse import urlparse, parse_qs
 from message_handler import MessageHandler
 
 # --- CONFIGURATION ---
-PAGE_ACCESS_TOKEN = "YOUR_FB_PAGE_TOKEN"
-VERIFY_TOKEN = "YOUR_SECRET_VERIFY_TOKEN"
+PAGE_ACCESS_TOKEN = "EAAODzm1AH0IBO8LnrwlLOjr5VL5zAofXPEFp7S262pGlMaUEgupV6wleVdPDPQAk13YZALvGeznfWqz4kSkPbbwKENbn1EwPTpRevDNbgoZBjU6tPOZABS7RLKcWZBD5HrLe8VX1KrldBOibXGFWuk2PEfQGDj56zYFbzLKsFvdtJTP7Io7JCOd2iyZBOJ0ywoe6asbdt"
+VERIFY_TOKEN = "939"
 
 class MessengerAPI:
     """Helper class to send messages to Facebook Graph API"""
