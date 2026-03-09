@@ -5,4 +5,4 @@ compatibility_flags = ["python_workers"]
 
 [[kv_namespaces]]
 binding = "USER_DB"
-id = "WE_WILL_FILL_THIS_IN_LATER"
+id = "864f909a24c04a5baabacc646ac2767a"
