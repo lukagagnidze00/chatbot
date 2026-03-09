@@ -26,7 +26,7 @@ class MessageHandler:
         """Update the Cloudflare KV with 30-day auto-purge"""
         try:
             # Use a local variable to be extra clear
-            expiry = 2592000 
+            expiry = 60 
             
             # This syntax is the most 'standard' for the 2026 Python Workers SDK
             await self.env.USER_DB.put(
