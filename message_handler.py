@@ -23,15 +23,15 @@ class MessageHandler:
 
 
     async def save_session(self, user_id, user_data):
-    try:
-        # 2,592,000 seconds = 30 days
-        await self.env.USER_DB.put(
-            user_id, 
-            json.dumps(user_data), 
-            expiration_ttl=2592000
-        )
-    except Exception as e:
-        print(f"Error saving session: {e}")
+        try:
+            # 2,592,000 seconds = 30 days
+            await self.env.USER_DB.put(
+                user_id, 
+                json.dumps(user_data), 
+                expiration_ttl=2592000
+            )
+        except Exception as e:
+            print(f"Error saving session: {e}")
 
     async def process_message(self, message_text, quick_reply_payload=None):
         await self.load_session()
