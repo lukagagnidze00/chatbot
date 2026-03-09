@@ -41,7 +41,7 @@ class Default(WorkerEntrypoint):
         if request.method == "POST":
             data = await request.json()
             # Fire-and-forget background task
-            self.ctx.wait_until(self.handle_event(data))
+            return await self.handle_event(data)
             return Response("EVENT_RECEIVED", status=200)
 
     async def handle_event(self, data):
