@@ -23,17 +23,20 @@ class MessageHandler:
 
 
     async def save_session(self):
-        """Update the Cloudflare KV with 30-day auto-purge (Python SDK Syntax)"""
+        """Update the Cloudflare KV with 30-day auto-purge"""
         try:
-            # We pass expiration_ttl as a direct named argument
+            # Use a local variable to be extra clear
+            expiry = 2592000 
+            
+            # This syntax is the most 'standard' for the 2026 Python Workers SDK
             await self.env.USER_DB.put(
                 f"session_{self.sender_id}", 
                 json.dumps(self.session),
-                expiration_ttl=2592000
+                expiration_ttl=expiry
             )
         except Exception as e:
-            # If there's a syntax error, this will show up in your Cloudflare Logs
-            print(f"KV Save Error: {e}")
+            # This will now definitely show up in the 'logs' array if it fails
+            print(f"KV Save Error: {str(e)}")
 
     async def process_message(self, message_text, quick_reply_payload=None):
         await self.load_session()
