@@ -28,7 +28,7 @@ class MessageHandler:
         try:
             # Calculate exactly 60 seconds from now for the test
             # (Change 60 back to 2592000 for the 30-day final version)
-            delete_at = int(time.time()) + 60
+            delete_at = int(time.time()) + 2592000
             
             await self.env.USER_DB.put(
                 f"session_{self.sender_id}", 
@@ -105,7 +105,7 @@ class MessageHandler:
                 {"content_type": "text", "title": "Other Question", "payload": "other_en"},
                 {"content_type": "text", "title": "🔄 Restart", "payload": "restart"}
             ]
-        else:
+        elif self.session.get("language") == "georgian_language_":
             text = "რა ინფორმაციის მოწოდება შეგვიძლია?"
             quick_replies = [
                 {"content_type": "text", "title": "სკოლა", "payload": "info_school_ge"},
@@ -116,24 +116,45 @@ class MessageHandler:
         await self.api.send_message(self.sender_id, text, quick_replies)
 
     async def send_info_school(self, command):
-        resp = responses.school_info_en if "en" in command else responses.school_info_ge
-        await self.api.send_message(self.sender_id, resp)
+        if self.session.get("language") == "english_language_" or command == "info_school_en":
+            resp = responses.school_info_en
+            await self.api.send_message(self.sender_id, resp)
+        elif self.session.get("language") == "georgian_language_" or command == "info_school_ge":
+            resp = responses.school_info_ge
+            await self.api.send_message(self.sender_id, resp)
         self.session["ended"] = True
 
     async def send_info_preschool(self, command):
-        resp = responses.preschool_info_en if "en" in command else responses.preschool_info_ge
-        await self.api.send_message(self.sender_id, resp)
+        if self.session.get("language") == "english_language_" or command == "info_preschool_en":
+            resp = responses.preschool_info_en
+            await self.api.send_message(self.sender_id, resp)
+        elif self.session.get("language") == "georgian_language_" or command == "info_preschool_ge":
+            resp = responses.preschool_info_ge
+            await self.api.send_message(self.sender_id, resp)
         self.session["ended"] = True
 
     async def send_info_other(self, command):
-        msg = ("Please specify your question or contact us at +995 32 2 29 03 71. Type 'restart' to begin again." 
-               if "en" in command else 
-               "გთხოვთ მოგვწერეთ კითხვა ან დაგვიკავშირდით +995 32 2 29 03 71. თავიდან დასაწყებად აკრიფეთ: restart")
-        await self.api.send_message(self.sender_id, msg)
+        if self.session.get("language") == "english_language_" or command == "other_en":
+            msg = ("Please specify your question or contact us during working hours at *+995 32 2 29 03 71*, and we'll do our best to assist you! To repeat the chat type the word: restart.")
+            await self.api.send_message(self.sender_id, msg)
+        elif self.session.get("language") == "georgian_language_" or command == "other_ge":
+            msg = ("გთხოვთ მოგვწერეთ კითხვა ან დაგვიკავშირდით სამუშაო საათებში *+995 32 2 29 03 71* და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart."
+            await self.api.send_message(self.sender_id, msg)
         self.session["ended"] = True
 
     async def send_info_after_bug(self):
-        msg = ("For info: +995 32 2 29 03 71. Type 'restart' to repeat.\n\n"
-               "დეტალური ინფორმაციისთვის: +995 32 2 29 03 71. აკრიფეთ 'restart'.")
-        await self.api.send_message(self.sender_id, msg)
+        if self.session.get("language") == "english_language_":
+            msg = ("For detailed information, please contact us at *+995 32 2 29 03 71* during the working hours. To repeat the chat type the word: restart.")
+            await self.api.send_message(self.sender_id, msg)
+        elif self.session.get("language") == "georgian_language_":
+            msg = ("დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart."
+            await self.api.send_message(self.sender_id, msg)
+        else:
+            msg: = (
+                "For detailed information, please contact us at *+995 32 2 29 03 71* during working hours.\n"
+                "To repeat the chat, type the word: *restart*\n\n"
+                "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*.\n"
+                "ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: *restart*"
+            )
+            await self.api.send_message(self.sender_id, msg)
         self.session["ended"] = True
