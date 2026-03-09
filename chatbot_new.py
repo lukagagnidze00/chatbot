@@ -58,7 +58,7 @@ class Default(WorkerEntrypoint):
                         qr_payload = event["message"].get("quick_reply", {}).get("payload")
 
                         # Initialize and run your separate logic file
-                        handler = MessageHandler(sender_id, self.env, MessengerAPI)
+                        handler = message_handler.MessageHandler(sender_id, self.env, MessengerAPI)
                         await handler.process_message(msg_text, qr_payload)
 
         except Exception as e:
