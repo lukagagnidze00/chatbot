@@ -1,5 +1,6 @@
 import json
-import responses  # This imports your responses.py from the same folder
+import responses # This imports your responses.py from the same folder
+import time
 
 class MessageHandler:
     """Handles processing and responding to user messages using Cloudflare KV for sessions"""
@@ -23,21 +24,22 @@ class MessageHandler:
 
 
     async def save_session(self):
-        """Update the Cloudflare KV with 30-day auto-purge"""
+        """Force deletion using an absolute Unix Timestamp"""
         try:
-            # Use a local variable to be extra clear
-            expiry = 60 
+            # Calculate exactly 60 seconds from now for the test
+            # (Change 60 back to 2592000 for the 30-day final version)
+            delete_at = int(time.time()) + 60
             
-            # This syntax is the most 'standard' for the 2026 Python Workers SDK
             await self.env.USER_DB.put(
                 f"session_{self.sender_id}", 
                 json.dumps(self.session),
-                expiration_ttl=expiry
+                # 'expiration' is the absolute version of 'expiration_ttl'
+                expiration=delete_at
             )
+            print(f"Audit: Data scheduled for destruction at {delete_at}")
         except Exception as e:
-            # This will now definitely show up in the 'logs' array if it fails
-            print(f"KV Save Error: {str(e)}")
-
+            print(f"KV Absolute Error: {e}")
+        
     async def process_message(self, message_text, quick_reply_payload=None):
         await self.load_session()
         command = (quick_reply_payload or message_text).lower()
