@@ -7,5 +7,3 @@ compatibility_flags = ["python_workers"]
 binding = "USER_DB"
 id = "864f909a24c04a5baabacc646ac2767a"
 
-[build]
-find_additional_modules = true
