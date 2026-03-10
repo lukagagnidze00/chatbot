@@ -13,32 +13,33 @@ class MessageHandler:
 
     async def load_session(self):
         """Check if user exists in the Cloudflare KV 'Base'"""
-        data = await self.env.USER_DB.get(f"session_{self.sender_id}")
-        if data:
-            # RETURNING USER: Load their existing state
-            self.session = json.loads(data)
-        else:
-            # NEW USER: (Or after you manually clear the KV base monthly)
-            # They get a fresh start here.
+        try:
+            data = await self.env.USER_DB.get(f"session_{self.sender_id}")
+            if data:
+                self.session = json.loads(data)
+                # Ensure all keys exist to prevent 'KeyError' crashes
+                if "ended" not in self.session: self.session["ended"] = False
+                if "welcome_sent" not in self.session: self.session["welcome_sent"] = False
+            else:
+                self.session = {"language": None, "ended": False, "welcome_sent": False}
+        except Exception as e:
+            print(f"Load Error: {e}")
             self.session = {"language": None, "ended": False, "welcome_sent": False}
 
 
     async def save_session(self):
-        """Force deletion using an absolute Unix Timestamp"""
+        """Saves session using TTL (Time To Live) for better stability"""
         try:
-            # Calculate exactly 60 seconds from now for the test
-            # (Change 60 back to 2592000 for the 30-day final version)
-            delete_at = int(time.time()) + 2592000
-            
+            # 2,592,000 seconds = 30 days
+            # TTL is much safer than absolute expiration in Cloudflare
             await self.env.USER_DB.put(
                 f"session_{self.sender_id}", 
                 json.dumps(self.session),
-                # 'expiration' is the absolute version of 'expiration_ttl'
-                expiration=delete_at
+                expiration_ttl=2592000 
             )
-            print(f"Audit: Data scheduled for destruction at {delete_at}")
         except Exception as e:
-            print(f"KV Absolute Error: {e}")
+            # If this prints in your Cloudflare logs, the KV binding 'USER_DB' is wrong
+            print(f"Critical Save Error: {e}")
         
     async def process_message(self, message_text, quick_reply_payload=None):
         await self.load_session()
