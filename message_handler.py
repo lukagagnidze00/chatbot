@@ -136,19 +136,19 @@ class MessageHandler:
 
     async def send_info_other(self, command):
         if self.session.get("language") == "english_language_" or command == "other_en":
-            msg = ("Please specify your question or contact us during working hours at *+995 32 2 29 03 71*, and we'll do our best to assist you! To repeat the chat type the word: restart.")
+            msg = ("Please specify your question or contact us during working hours at *+995 32 2 29 03 71*, and we'll do our best to assist you! To repeat the chat type the word: *restart*")
             await self.api.send_message(self.sender_id, msg)
         elif self.session.get("language") == "georgian_language_" or command == "other_ge":
-            msg = ("გთხოვთ მოგვწერეთ კითხვა ან დაგვიკავშირდით სამუშაო საათებში *+995 32 2 29 03 71* და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart.")
+            msg = ("გთხოვთ მოგვწერეთ კითხვა ან დაგვიკავშირდით სამუშაო საათებში *+995 32 2 29 03 71* და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: *restart*")
             await self.api.send_message(self.sender_id, msg)
         self.session["ended"] = True
 
     async def send_info_after_bug(self):
         if self.session.get("language") == "english_language_":
-            msg = ("For detailed information, please contact us at *+995 32 2 29 03 71* during the working hours. To repeat the chat type the word: restart.")
+            msg = ("For detailed information, please contact us at *+995 32 2 29 03 71* during the working hours. To repeat the chat type the word: *restart*")
             await self.api.send_message(self.sender_id, msg)
         elif self.session.get("language") == "georgian_language_":
-            msg = ("დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: restart.")
+            msg = ("დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: *restart*")
             await self.api.send_message(self.sender_id, msg)
         else:
             msg = (
