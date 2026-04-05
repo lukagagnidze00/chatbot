@@ -85,16 +85,16 @@ class MessageHandler:
             {"content_type": "text", "title": "English", "payload": "english_language_"},
             {"content_type": "text", "title": "ქართული", "payload": "georgian_language_"}
         ]
-        await self.api.send_message(self.sender_id, text, quick_replies)
+        await self.api.send_message(self.sender_id, text, self.env, quick_replies)
 
     async def set_language(self, command):
         if command == "english_language_":
             self.session.update({"language": command, "welcome_sent": True})
-            await self.api.send_message(self.sender_id, "You selected English.")
+            await self.api.send_message(self.sender_id, "You selected English.", self.env)
             await self.send_menu()
         elif command == "georgian_language_":
             self.session.update({"language": command, "welcome_sent": True})
-            await self.api.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.")
+            await self.api.send_message(self.sender_id, "თქვენ აირჩიეთ ქართული.", self.env)
             await self.send_menu()
 
     async def send_menu(self):
@@ -114,42 +114,42 @@ class MessageHandler:
                 {"content_type": "text", "title": "სხვა შეკითხვა", "payload": "other_ge"},
                 {"content_type": "text", "title": "🔄 დასაწყისი", "payload": "restart"}
             ]
-        await self.api.send_message(self.sender_id, text, quick_replies)
+        await self.api.send_message(self.sender_id, text, self.env, quick_replies)
 
     async def send_info_school(self, command):
         if self.session.get("language") == "english_language_" or command == "info_school_en":
             resp = responses.school_info_en
-            await self.api.send_message(self.sender_id, resp)
+            await self.api.send_message(self.sender_id, resp, self.env)
         elif self.session.get("language") == "georgian_language_" or command == "info_school_ge":
             resp = responses.school_info_ge
-            await self.api.send_message(self.sender_id, resp)
+            await self.api.send_message(self.sender_id, resp, self.env)
         self.session["ended"] = True
 
     async def send_info_preschool(self, command):
         if self.session.get("language") == "english_language_" or command == "info_preschool_en":
             resp = responses.preschool_info_en
-            await self.api.send_message(self.sender_id, resp)
+            await self.api.send_message(self.sender_id, resp, self.env)
         elif self.session.get("language") == "georgian_language_" or command == "info_preschool_ge":
             resp = responses.preschool_info_ge
-            await self.api.send_message(self.sender_id, resp)
+            await self.api.send_message(self.sender_id, resp, self.env)
         self.session["ended"] = True
 
     async def send_info_other(self, command):
         if self.session.get("language") == "english_language_" or command == "other_en":
             msg = ("Please specify your question or contact us during working hours at *+995 32 2 29 03 71*, and we'll do our best to assist you! To repeat the chat type the word: *restart*")
-            await self.api.send_message(self.sender_id, msg)
+            await self.api.send_message(self.sender_id, msg, self.env)
         elif self.session.get("language") == "georgian_language_" or command == "other_ge":
             msg = ("გთხოვთ მოგვწერეთ კითხვა ან დაგვიკავშირდით სამუშაო საათებში *+995 32 2 29 03 71* და ვეცდებით მალე გიპასუხოთ! ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: *restart*")
-            await self.api.send_message(self.sender_id, msg)
+            await self.api.send_message(self.sender_id, msg, self.env)
         self.session["ended"] = True
 
     async def send_info_after_bug(self):
         if self.session.get("language") == "english_language_":
             msg = ("For detailed information, please contact us at *+995 32 2 29 03 71* during the working hours. To repeat the chat type the word: *restart*")
-            await self.api.send_message(self.sender_id, msg)
+            await self.api.send_message(self.sender_id, msg, self.env)
         elif self.session.get("language") == "georgian_language_":
             msg = ("დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*. ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: *restart*")
-            await self.api.send_message(self.sender_id, msg)
+            await self.api.send_message(self.sender_id, msg, self.env)
         else:
             msg = (
                 "For detailed information, please contact us at *+995 32 2 29 03 71* during working hours.\n"
@@ -157,5 +157,5 @@ class MessageHandler:
                 "დეტალური ინფორმაციისთვის, გთხოვთ სამუშაო საათებში დაგვიკავშირდეთ ნომერზე *+995 32 2 29 03 71*.\n"
                 "ჩატის ხელახლა დასაწყებად აკრიფეთ სიტყვა: *restart*"
             )
-            await self.api.send_message(self.sender_id, msg)
+            await self.api.send_message(self.sender_id, msg,self.env)
         self.session["ended"] = True
