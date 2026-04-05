@@ -3,15 +3,11 @@ import json
 from urllib.parse import urlparse, parse_qs
 import message_handler
 
-# --- CONFIGURATION ---
-PAGE_ACCESS_TOKEN = "EAAODzm1AH0IBO8LnrwlLOjr5VL5zAofXPEFp7S262pGlMaUEgupV6wleVdPDPQAk13YZALvGeznfWqz4kSkPbbwKENbn1EwPTpRevDNbgoZBjU6tPOZABS7RLKcWZBD5HrLe8VX1KrldBOibXGFWuk2PEfQGDj56zYFbzLKsFvdtJTP7Io7JCOd2iyZBOJ0ywoe6asbdt"
-VERIFY_TOKEN = "939"
-
 class MessengerAPI:
     """Helper class to send messages to Facebook Graph API"""
     @staticmethod
-    async def send_message(recipient_id, text, quick_replies=None):
-        url = f"https://graph.facebook.com/v22.0/me/messages?access_token={PAGE_ACCESS_TOKEN}"
+    async def send_message(recipient_id, text, env, quick_replies=None):
+        url = f"https://graph.facebook.com/v22.0/me/messages?access_token={env.PAGE_ACCESS_TOKEN}"
         payload = {
             "recipient": {"id": recipient_id},
             "message": {"text": text}
@@ -33,7 +29,7 @@ class Default(WorkerEntrypoint):
         # 1. FB WEBHOOK VERIFICATION
         if request.method == "GET":
             params = parse_qs(url.query)
-            if params.get("hub.verify_token", [""])[0] == VERIFY_TOKEN:
+            if params.get("hub.verify_token", [""])[0] == self.env.VERIFY_TOKEN:
                 return Response(params.get("hub.challenge", [""])[0])
             return Response("Forbidden", status=403)
 
