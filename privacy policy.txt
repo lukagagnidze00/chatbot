@@ -1,0 +1,18 @@
+Our Messenger chatbot only provides school and preschool valid information.
+We do not collect, store, or share any personal data from users.
+
+For any concerns, contact us at info@modzgvari.edu.ge
+
+Privacy Policy for Chatbot
+
+Data Collected: We collect your Facebook User ID and your interaction state (e.g., language preference and menu progress).
+
+Purpose: This data is used solely to provide a personalized experience and remember your settings during your conversation.
+
+Storage & Security: Data is stored securely using Cloudflare KV. We do not store your name, profile picture, or private personal details.
+
+Data Retention: All user session data is purged every 30 days.
+
+User Rights: You can reset your data at any time by typing "restart" in the chat. To request a full deletion of your interaction history, please contact [Your Email/School Email].
+
+Third Parties: We do not share or sell your data to any third parties.

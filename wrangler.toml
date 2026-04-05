@@ -1,0 +1,9 @@
+name = "chatbot-v2"
+main = "chatbot_new.py"
+compatibility_date = "2026-03-09"
+compatibility_flags = ["python_workers"]
+
+[[kv_namespaces]]
+binding = "USER_DB"
+id = "864f909a24c04a5baabacc646ac2767a"
+
