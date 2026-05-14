@@ -13,7 +13,7 @@ school_info_en = """🎓 *Robert Schuman European School, \"Modzgvari\"*
 🕓 *Schedule for grades 7+:* 09:00-15:00
 🍱 *Nutrition:* Healthy lunch (gr. 1-6), additional meals provided in the evening (gr. 1-4)  
 🎓 *Graduates:* University-ready with global skillsets    
-💵 *Tuition:* ₾ 8000  
+💵 *Tuition:* National - ₾ 8000 & British International (Pearson Edexcel) - ₾ 17000
 📞 *Contact:* +995 32 2 29 03 71  
 🌐 *Website:* https://modzgvari.edu.ge/
 👋 *Meet our team, explore our campus, and feel the RSES Modzgvari School difference!*
@@ -35,7 +35,7 @@ school_info_ge = """🎓 *რობერ შუმანის სახელ�
 🕓 *VII კლასიდან:* 09:00–15:00
 🍱 *კვება:* ჯანსაღი სადილი (I-VI კლ.), დამატებითი კვება საღამოს საათებში (I-IV კლ.)
 🎓 *კურსდამთავრებულები:* მზად არიან ნებისმიერი საუნივერსიტეტო გამოწვევისთვის და აქვთ გლობალური უნარ-ჩვევები
-💵 *სწავლის საფასური:* ₾ 8000
+💵 *სწავლის საფასური:* ეროვნული - ₾ 8000 & ბრიტანული საერთაშორისო (Pearson Edexcel) - ₾ 17000
 📞 *კონტაქტი:* +995 32 2 29 03 71
 🌐 *ვებგვერდი:* https://modzgvari.edu.ge/
 
