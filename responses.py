@@ -13,7 +13,7 @@ school_info_en = """🎓 *Robert Schuman European School, \"Modzgvari\"*
 🕓 *Schedule for grades 7+:* 09:00-15:00
 🍱 *Nutrition:* Healthy lunch (gr. 1-6), additional meals provided in the evening (gr. 1-4)  
 🎓 *Graduates:* University-ready with global skillsets    
-💵 *Tuition:* National - ₾ 8000 & British International (Pearson Edexcel) - ₾ 17000
+💵 *Tuition:* National - ₾ 9000 & British International (Pearson Edexcel) - ₾ 17000
 📞 *Contact:* +995 32 2 29 03 71  
 🌐 *Website:* https://modzgvari.edu.ge/
 👋 *Meet our team, explore our campus, and feel the RSES Modzgvari School difference!*
@@ -35,7 +35,7 @@ school_info_ge = """🎓 *რობერ შუმანის სახელ�
 🕓 *VII კლასიდან:* 09:00–15:00
 🍱 *კვება:* ჯანსაღი სადილი (I-VI კლ.), დამატებითი კვება საღამოს საათებში (I-IV კლ.)
 🎓 *კურსდამთავრებულები:* მზად არიან ნებისმიერი საუნივერსიტეტო გამოწვევისთვის და აქვთ გლობალური უნარ-ჩვევები
-💵 *სწავლის საფასური:* ეროვნული - ₾ 8000 & ბრიტანული საერთაშორისო (Pearson Edexcel) - ₾ 17000
+💵 *სწავლის საფასური:* ეროვნული - ₾ 9000 & ბრიტანული საერთაშორისო (Pearson Edexcel) - ₾ 17000
 📞 *კონტაქტი:* +995 32 2 29 03 71
 🌐 *ვებგვერდი:* https://modzgvari.edu.ge/
 
@@ -55,7 +55,7 @@ preschool_info_en = """🧸🎓 *Robert Schuman European School, \"Modzgvari\"*
 🧠 *Psychological Support:* Caring psychologist available for emotional well-being and personal growth
 🍽️ *Nutrition:* Healthy lunch, additional meals provided in the evening     
 🕘 *Hours:* Monday–Friday, 09:00–17:30
-💵 *Tuition:* ₾ 6000  
+💵 *Tuition:* ₾ 7000  
 📞 *Contact:* +995 32 2 29 03 71  
 🌐 *Website:* https://modzgvari.edu.ge/
 
@@ -75,7 +75,7 @@ preschool_info_ge = """🧸🎓 *რობერ შუმანის სახ
 🧠 *ფსიქოლოგიური მხარდაჭერა:* მზრუნველი ფსიქოლოგი მოსწავლეთა ემოციური კეთილდღეობისა და პიროვნული განვითარებისათვის
 🍽️ *კვება:* ჯანსაღი სადილი და დამატებითი კვება საღამოს საათებში
 🕘 *საათი:* ორშაბათი–პარასკევი, 09:00–17:30
-💵 *სწავლის საფასური:* ₾ 6000
+💵 *სწავლის საფასური:* ₾ 7000
 📞 *კონტაქტი:* +995 32 2 29 03 71
 🌐 *ვებგვერდი:* https://modzgvari.edu.ge/
 
